@@ -6,7 +6,7 @@
 - seeding des tables pour jouer avec des data
 - développer le serveur web
   - point d'entrée : index.js
-  - router
+  - middlewares (dont bien-sûr le router, mais pas que ... : express.json, swagger, cors, ...)
   - contrôleur(s)
   - modèle(s)
   - connecter BDD

@@ -41,25 +41,9 @@ class Boardgame {
         try {
             if (this.id) {
                 //update
-                await db.query('UPDATE boardgame SET name=$1, author=$2, editor=$3, min_players=$4, max_players=$5, min_age=$6 WHERE id=$7', [
-                    this.name,
-                    this.author,
-                    this.editor,
-                    this.min_players,
-                    this.max_players,
-                    this.min_age,
-                    this.id
-                ]);
+                await db.query('SELECT * FROM update_boardgame($1)', [this]);
             } else {
-                //insert
-                const {rows} = await db.query('INSERT INTO boardgame(name, author, editor, min_players, max_players, min_age) VALUES($1, $2, $3, $4, $5, $6) RETURNING id', [
-                    this.name,
-                    this.author,
-                    this.editor,
-                    this.min_players,
-                    this.max_players,
-                    this.min_age
-                ]);
+                const {rows} = await db.query('SELECT * FROM add_boardgame($1)', [this])
                 this.id = rows[0].id;
                 return this;
             }
