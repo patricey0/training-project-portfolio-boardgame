@@ -3,3 +3,39 @@
 
 ### Route de test
 GET {{host}}/test
+
+### Tous les jeux
+GET {{host}}/boardgames
+
+### Un jeu
+GET {{host}}/boardgames/5
+
+### Nouveau jeu
+POST {{host}}/boardgames/save
+Content-Type: application/json
+
+{
+    "name": "Mille bornes",
+    "author": "Pascal Jardin",
+    "editor": "Dujardin",
+    "min_players": 2,
+    "max_players": 8,
+    "min_age": 7
+}
+
+### Mise à jour jeu
+PATCH {{host}}/boardgames/save
+Content-Type: application/json
+
+{
+    "name": "Mille bornes Deluxe",
+    "author": "Pascal Jardin",
+    "editor": "Dujardin",
+    "min_players": 2,
+    "max_players": 8,
+    "min_age": 7,
+    "id": 5
+}
+
+### Suppression
+DELETE {{host}}/boardgames/5
